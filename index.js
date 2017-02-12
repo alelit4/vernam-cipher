@@ -13,8 +13,7 @@ module.exports = {
             ciphertext += xor(plaintext.charCodeAt(i), key[i])
         }
         return [key, ciphertext]  
-    }
-    ,
+    },
 
     decrypt: function decrypt(key, ciphertext) {
 
@@ -27,9 +26,17 @@ module.exports = {
         }
 
         return plaintext
+    },
+
+    binary: function binary(text){
+        var output = '';
+        for (var i = 0; i < text.length; i++) {
+            output += text[i].charCodeAt(0).toString(2) + " ";
+        }
+        return output
     }
 }
 
 function xor(char, key) {
-    return String.fromCharCode(char ^ key)
+    return String.fromCharCode(char ^ key )
 }
